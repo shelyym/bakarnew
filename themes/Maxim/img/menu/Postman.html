@@ -1,0 +1,2961 @@
+<!DOCTYPE html>
+<!-- saved from url=(0062)chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Postman</title>
+    <link rel="stylesheet" type="text/css" href="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/css/custom-theme/jquery-ui-1.9.2.custom.min.css">
+    <link rel="stylesheet" type="text/css" href="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/css/bootstrap-modal.css">
+    <link rel="stylesheet" type="text/css" href="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/css/jquery.jscrollpane.css">
+    <link rel="stylesheet" type="text/css" href="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/codemirror/lib/codemirror.css">
+    <link rel="stylesheet" type="text/css" href="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/codemirror/theme/eclipse.css">
+    <link rel="stylesheet" type="text/css" href="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/css/fonts.css">
+    <link rel="stylesheet" type="text/css" href="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/css/keyvalueeditor.css">
+</head>
+<body class="">
+<div id="modal-backdrop"></div>
+<div id="container" class="clearfix">
+<!-- <div id="v3-banner">
+    <div class="banner-wrapper">
+        <span class="banner-logo"></span>
+        <span class="banner-text" id="banner-new-version">Google plans to deprecate in-tab extensions soon. Update to our latest Chrome or Mac app to avoid losing data. <a href="https://www.getpostman.com/docs/migration" target="_blank" style="color: white; text-decoration: underline">Learn More</a>.</span>
+    </div>
+    <a class="banner-close banner-link" rel="tooltip" data-placement="bottom" data-original-title="Not now" data-container="body">
+        <img src="img/delete_light.svg">
+    </a>
+</div> -->
+<div class="v3-popover-wrapper"></div>
+<div id="sidebar-toggle">
+    <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/tri_arrow_left.png">
+</div>
+<div id="sidebar" class="" style="overflow: hidden; padding: 0px; width: 350px;">
+    
+    
+    
+<div class="jspContainer" style="width: 350px; height: 613px;"><div class="jspPane" style="padding: 0px 0px 0px 10px; top: 0px; width: 340px;"><div id="header" class="clearfix">
+        <div id="logo">
+            <a target="_blank">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/logo-grey.png" alt="Postman" height="15px" width="100px">
+            </a>
+        </div>
+        <div id="external-links">
+            <ul>
+                <li>
+                    <a rel="tooltip" data-placement="bottom" data-original-title="Download all data" id="download-all-data"><img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/download.png">
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.twitter.com/postmanclient" target="_blank"><img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/twitter.png">
+                    </a>
+                </li>
+                <li>
+                    <a id="postman-wiki" href="http://www.github.com/a85/POSTMan-Chrome-Extension/wiki" target="_blank"><img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/question_mark.png">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div><div id="sidebar-sections" class="clearfix">
+        <div id="history-options" class="section-options" style="display: none;">
+            <a class="history-actions-delete" rel="tooltip" data-placement="bottom" data-original-title="Clear history">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/trash-empty.png" style="width:24px; height:24px; vertical-align: middle;">
+            </a>
+        </div>
+        <div id="collections-options" class="section-options" style="display: block;">
+            <a href="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/index.html#modal-new-collection" rel="tooltip" data-original-title="Add new collection" data-toggle="modal" data-backdrop="static" data-placement="bottom" data-keyboard="true"><img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/folder_plus.png" style="width:20px; height:20px; vertical-align: middle;"></a>
+            <a href="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/index.html#modal-import-collection" rel="tooltip" data-original-title="Import collection" data-toggle="modal" data-backdrop="static" data-placement="bottom" data-keyboard="true"><img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/inbox_in.png" style="width:20px; height:20px; vertical-align: middle;"></a>
+        </div>
+        <ul id="sidebar-selectors" class="nav nav-pills">
+            <li class=""><a href="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/index.html#sidebar-section-history" data-id="history" data-toggle="tab">History</a></li>
+            <li class="active"><a href="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/index.html#sidebar-section-collections" data-id="collections" data-toggle="tab">Collections</a></li>
+        </ul>
+        <div id="sidebar-section-data">
+            <div class="tab-pane" id="sidebar-section-history" style="display: none;">
+                <ul id="history-items" class="clearfix">
+                
+    <li id="sidebar-request-2d52dae6-5e93-6c5a-27a2-ce662e3a225e" class="sidebar-history-request sidebar-request clearfix">
+    <div class="request-actions" style="display: none;">
+        <a data-request-id="2d52dae6-5e93-6c5a-27a2-ce662e3a225e" class="request-actions-delete">
+            <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png">
+        </a>
+    </div>
+    <div class="request" data-request-id="2d52dae6-5e93-6c5a-27a2-ce662e3a225e">
+        <a data-request-id="2d52dae6-5e93-6c5a-27a2-ce662e3a225e">
+            <span class="label label-method-POST">POST</span>
+            <span class="request-name">
+                localhost/sempoa_memcache/WSChild/joinCh<br>allange
+            </span>
+        </a>
+    </div>
+</li>
+
+    <li id="sidebar-request-fb1acd02-af5c-4f31-a3bc-6712386877c6" class="sidebar-history-request sidebar-request clearfix">
+    <div class="request-actions" style="display: none;">
+        <a data-request-id="fb1acd02-af5c-4f31-a3bc-6712386877c6" class="request-actions-delete">
+            <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png">
+        </a>
+    </div>
+    <div class="request" data-request-id="fb1acd02-af5c-4f31-a3bc-6712386877c6">
+        <a data-request-id="fb1acd02-af5c-4f31-a3bc-6712386877c6">
+            <span class="label label-method-POST">POST</span>
+            <span class="request-name">
+                localhost/sempoa_memcache/WSChild/joinCh<br>allange
+            </span>
+        </a>
+    </div>
+</li>
+
+    <li id="sidebar-request-5eb94951-b288-5471-3fee-7ec1d112a92a" class="sidebar-history-request sidebar-request clearfix">
+    <div class="request-actions">
+        <a data-request-id="5eb94951-b288-5471-3fee-7ec1d112a92a" class="request-actions-delete">
+            <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png">
+        </a>
+    </div>
+    <div class="request" data-request-id="5eb94951-b288-5471-3fee-7ec1d112a92a">
+        <a data-request-id="5eb94951-b288-5471-3fee-7ec1d112a92a">
+            <span class="label label-method-POST">POST</span>
+            <span class="request-name">
+                localhost/sempoa_memcache/WSChild/getMyC<br>hildIBOInfo
+            </span>
+        </a>
+    </div>
+</li>
+
+    <li id="sidebar-request-3877cf73-7562-4805-f5d3-f2811c910356" class="sidebar-history-request sidebar-request clearfix">
+    <div class="request-actions">
+        <a data-request-id="3877cf73-7562-4805-f5d3-f2811c910356" class="request-actions-delete">
+            <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png">
+        </a>
+    </div>
+    <div class="request" data-request-id="3877cf73-7562-4805-f5d3-f2811c910356">
+        <a data-request-id="3877cf73-7562-4805-f5d3-f2811c910356">
+            <span class="label label-method-POST">POST</span>
+            <span class="request-name">
+                localhost/sempoa_memcache/WSChild/getMyC<br>hildTCInfo
+            </span>
+        </a>
+    </div>
+</li>
+
+    <li id="sidebar-request-500838f9-a8c6-db3f-0f01-07f990612f18" class="sidebar-history-request sidebar-request clearfix">
+    <div class="request-actions">
+        <a data-request-id="500838f9-a8c6-db3f-0f01-07f990612f18" class="request-actions-delete">
+            <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png">
+        </a>
+    </div>
+    <div class="request" data-request-id="500838f9-a8c6-db3f-0f01-07f990612f18">
+        <a data-request-id="500838f9-a8c6-db3f-0f01-07f990612f18">
+            <span class="label label-method-POST">POST</span>
+            <span class="request-name">
+                localhost/sempoa_memcache/WSChild/readNo<br>tificationByID
+            </span>
+        </a>
+    </div>
+</li>
+
+    <li id="sidebar-request-11ce2d77-1c45-5e7b-a4b5-762d10fcdb56" class="sidebar-history-request sidebar-request clearfix">
+    <div class="request-actions">
+        <a data-request-id="11ce2d77-1c45-5e7b-a4b5-762d10fcdb56" class="request-actions-delete">
+            <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png">
+        </a>
+    </div>
+    <div class="request" data-request-id="11ce2d77-1c45-5e7b-a4b5-762d10fcdb56">
+        <a data-request-id="11ce2d77-1c45-5e7b-a4b5-762d10fcdb56">
+            <span class="label label-method-POST">POST</span>
+            <span class="request-name">
+                localhost/sempoa_memcache/WSChild/getNot<br>ificationByID
+            </span>
+        </a>
+    </div>
+</li>
+
+    <li id="sidebar-request-231ae8e2-4575-955b-e7c8-c61f4080b8f3" class="sidebar-history-request sidebar-request clearfix">
+    <div class="request-actions">
+        <a data-request-id="231ae8e2-4575-955b-e7c8-c61f4080b8f3" class="request-actions-delete">
+            <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png">
+        </a>
+    </div>
+    <div class="request" data-request-id="231ae8e2-4575-955b-e7c8-c61f4080b8f3">
+        <a data-request-id="231ae8e2-4575-955b-e7c8-c61f4080b8f3">
+            <span class="label label-method-POST">POST</span>
+            <span class="request-name">
+                localhost/sempoa_memcache/WSChild/getPro<br>filMurid
+            </span>
+        </a>
+    </div>
+</li>
+
+    <li id="sidebar-request-75f1aef6-13b4-a67a-5e04-f9ea50731c82" class="sidebar-history-request sidebar-request clearfix">
+    <div class="request-actions">
+        <a data-request-id="75f1aef6-13b4-a67a-5e04-f9ea50731c82" class="request-actions-delete">
+            <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png">
+        </a>
+    </div>
+    <div class="request" data-request-id="75f1aef6-13b4-a67a-5e04-f9ea50731c82">
+        <a data-request-id="75f1aef6-13b4-a67a-5e04-f9ea50731c82">
+            <span class="label label-method-POST">POST</span>
+            <span class="request-name">
+                localhost/sempoa_memcache/WSChild/wallet<br>History
+            </span>
+        </a>
+    </div>
+</li>
+
+    <li id="sidebar-request-e6a4df88-20bc-3a73-5acb-03b21e2a46dc" class="sidebar-history-request sidebar-request clearfix">
+    <div class="request-actions">
+        <a data-request-id="e6a4df88-20bc-3a73-5acb-03b21e2a46dc" class="request-actions-delete">
+            <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png">
+        </a>
+    </div>
+    <div class="request" data-request-id="e6a4df88-20bc-3a73-5acb-03b21e2a46dc">
+        <a data-request-id="e6a4df88-20bc-3a73-5acb-03b21e2a46dc">
+            <span class="label label-method-POST">POST</span>
+            <span class="request-name">
+                localhost/sempoa_memcache/WSChild/topupM<br>uridReward
+            </span>
+        </a>
+    </div>
+</li>
+
+    <li id="sidebar-request-a8485b25-b32e-89f3-8557-3da9a4e3c8c6" class="sidebar-history-request sidebar-request clearfix">
+    <div class="request-actions">
+        <a data-request-id="a8485b25-b32e-89f3-8557-3da9a4e3c8c6" class="request-actions-delete">
+            <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png">
+        </a>
+    </div>
+    <div class="request" data-request-id="a8485b25-b32e-89f3-8557-3da9a4e3c8c6">
+        <a data-request-id="a8485b25-b32e-89f3-8557-3da9a4e3c8c6">
+            <span class="label label-method-POST">POST</span>
+            <span class="request-name">
+                localhost/sempoa_memcache/WSChild/getSet<br>tingCoin
+            </span>
+        </a>
+    </div>
+</li>
+
+    <li id="sidebar-request-36731df5-c131-5c3f-7cdd-3ded3a5bbb5e" class="sidebar-history-request sidebar-request clearfix">
+    <div class="request-actions">
+        <a data-request-id="36731df5-c131-5c3f-7cdd-3ded3a5bbb5e" class="request-actions-delete">
+            <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png">
+        </a>
+    </div>
+    <div class="request" data-request-id="36731df5-c131-5c3f-7cdd-3ded3a5bbb5e">
+        <a data-request-id="36731df5-c131-5c3f-7cdd-3ded3a5bbb5e">
+            <span class="label label-method-POST">POST</span>
+            <span class="request-name">
+                localhost/sempoa_memcache/WSChild/getWal<br>letMurid
+            </span>
+        </a>
+    </div>
+</li>
+
+    <li id="sidebar-request-f2796086-535c-85f3-e8ad-ba8f002b352d" class="sidebar-history-request sidebar-request clearfix">
+    <div class="request-actions">
+        <a data-request-id="f2796086-535c-85f3-e8ad-ba8f002b352d" class="request-actions-delete">
+            <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png">
+        </a>
+    </div>
+    <div class="request" data-request-id="f2796086-535c-85f3-e8ad-ba8f002b352d">
+        <a data-request-id="f2796086-535c-85f3-e8ad-ba8f002b352d">
+            <span class="label label-method-POST">POST</span>
+            <span class="request-name">
+                localhost/sempoa_memcache/WSChild/AbsenMurid
+            </span>
+        </a>
+    </div>
+</li>
+
+    <li id="sidebar-request-942c2830-16b9-e890-bab8-ffa2dcfd4ce7" class="sidebar-history-request sidebar-request clearfix">
+    <div class="request-actions">
+        <a data-request-id="942c2830-16b9-e890-bab8-ffa2dcfd4ce7" class="request-actions-delete">
+            <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png">
+        </a>
+    </div>
+    <div class="request" data-request-id="942c2830-16b9-e890-bab8-ffa2dcfd4ce7">
+        <a data-request-id="942c2830-16b9-e890-bab8-ffa2dcfd4ce7">
+            <span class="label label-method-POST">POST</span>
+            <span class="request-name">
+                localhost/sempoa_memcache/WSChild/AbsenMurid
+            </span>
+        </a>
+    </div>
+</li>
+
+    <li id="sidebar-request-44f87a6c-4bd7-9558-ee26-2712f38c5000" class="sidebar-history-request sidebar-request clearfix">
+    <div class="request-actions">
+        <a data-request-id="44f87a6c-4bd7-9558-ee26-2712f38c5000" class="request-actions-delete">
+            <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png">
+        </a>
+    </div>
+    <div class="request" data-request-id="44f87a6c-4bd7-9558-ee26-2712f38c5000">
+        <a data-request-id="44f87a6c-4bd7-9558-ee26-2712f38c5000">
+            <span class="label label-method-POST">POST</span>
+            <span class="request-name">
+                localhost/sempoa_memcache/WSChild/AbsenMurid
+            </span>
+        </a>
+    </div>
+</li>
+
+    <li id="sidebar-request-f6803e65-8241-2b8b-b767-944dbfbfe79f" class="sidebar-history-request sidebar-request clearfix">
+    <div class="request-actions">
+        <a data-request-id="f6803e65-8241-2b8b-b767-944dbfbfe79f" class="request-actions-delete">
+            <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png">
+        </a>
+    </div>
+    <div class="request" data-request-id="f6803e65-8241-2b8b-b767-944dbfbfe79f">
+        <a data-request-id="f6803e65-8241-2b8b-b767-944dbfbfe79f">
+            <span class="label label-method-POST">POST</span>
+            <span class="request-name">
+                localhost/sempoa_memcache/WSChild/homeChild
+            </span>
+        </a>
+    </div>
+</li>
+</ul>
+            </div>
+            <div class="tab-pane active" id="sidebar-section-collections" style="display: block;">
+                <ul id="collection-items" class="clearfix"><li id="collection-fcd76e28-770c-b1af-fa3c-f3b9a96d2a31" data-id="fcd76e28-770c-b1af-fa3c-f3b9a96d2a31" class="sidebar-collection">
+    <div class="sidebar-collection-head ui-droppable">
+        <div class="collection-head-actions" style="display: none;">
+            <a data-placement="bottom" rel="tooltip" data-original-title="Edit collection" ref="#modal-edit-collection" data-toggle="modal" class="collection-actions-edit" data-id="fcd76e28-770c-b1af-fa3c-f3b9a96d2a31" data-name="Sandbox Sempoa">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;"></a>
+            <a data-placement="bottom" rel="tooltip" data-original-title="Share collection" class="collection-actions-download" data-id="fcd76e28-770c-b1af-fa3c-f3b9a96d2a31">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/share.png" style="vertical-align: middle;"></a>
+            <a rel="tooltip" data-original-title="Delete collection" data-name="Sandbox Sempoa" data-placement="bottom" href="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/index.html#modal-delete-collection" data-toggle="modal" class="collection-actions-delete" data-id="fcd76e28-770c-b1af-fa3c-f3b9a96d2a31">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;"></a>
+        </div>
+        <div class="sidebar-collection-head-name" data-id="fcd76e28-770c-b1af-fa3c-f3b9a96d2a31">
+            Sandbox Sempoa
+        </div>
+    </div>
+    <ul id="collection-requests-fcd76e28-770c-b1af-fa3c-f3b9a96d2a31" class="sidebar-collection-requests ui-sortable" style="">
+    
+    <li id="sidebar-request-0b4df867-4487-94e0-d36e-1bedf7b22a48" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="0b4df867-4487-94e0-d36e-1bedf7b22a48" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="0b4df867-4487-94e0-d36e-1bedf7b22a48" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="0b4df867-4487-94e0-d36e-1bedf7b22a48">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/addChildByParent
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-f2e35ded-b43e-3660-ef16-049912d7ef90" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="f2e35ded-b43e-3660-ef16-049912d7ef90" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="f2e35ded-b43e-3660-ef16-049912d7ef90" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="f2e35ded-b43e-3660-ef16-049912d7ef90">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/changeParentEmail
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-631fe66a-fb73-f381-ab2a-900f71207091" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="631fe66a-fb73-f381-ab2a-900f71207091" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="631fe66a-fb73-f381-ab2a-900f71207091" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="631fe66a-fb73-f381-ab2a-900f71207091">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/changeParentName
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-8fcf2f78-aa06-dbc4-c6cc-79e1eef5f1b4" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="8fcf2f78-aa06-dbc4-c6cc-79e1eef5f1b4" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="8fcf2f78-aa06-dbc4-c6cc-79e1eef5f1b4" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="8fcf2f78-aa06-dbc4-c6cc-79e1eef5f1b4">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/changeParentName
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-1705c12e-0887-bda2-ba8d-0d9ccb7227c3" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="1705c12e-0887-bda2-ba8d-0d9ccb7227c3" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="1705c12e-0887-bda2-ba8d-0d9ccb7227c3" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="1705c12e-0887-bda2-ba8d-0d9ccb7227c3">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/changeParentPassword
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-c0aa674b-e264-30b5-e366-64c6e513850f" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="c0aa674b-e264-30b5-e366-64c6e513850f" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="c0aa674b-e264-30b5-e366-64c6e513850f" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="c0aa674b-e264-30b5-e366-64c6e513850f">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/changeParentPassword
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-cdceb47d-8c04-5afd-489b-fa90f1320fce" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="cdceb47d-8c04-5afd-489b-fa90f1320fce" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="cdceb47d-8c04-5afd-489b-fa90f1320fce" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="cdceb47d-8c04-5afd-489b-fa90f1320fce">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/changeParentPhoneNr
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-b66a2914-a5a7-7067-cd1e-2b2400dd8dcb" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="b66a2914-a5a7-7067-cd1e-2b2400dd8dcb" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="b66a2914-a5a7-7067-cd1e-2b2400dd8dcb" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="b66a2914-a5a7-7067-cd1e-2b2400dd8dcb">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/getMyChildIBOInfo
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-18d0df3c-99e8-cd60-c17e-d39e2315903d" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="18d0df3c-99e8-cd60-c17e-d39e2315903d" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="18d0df3c-99e8-cd60-c17e-d39e2315903d" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="18d0df3c-99e8-cd60-c17e-d39e2315903d">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/getMyChildName
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-cff2e5f5-58f3-6008-8c41-ea3ba7bc529c" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="cff2e5f5-58f3-6008-8c41-ea3ba7bc529c" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="cff2e5f5-58f3-6008-8c41-ea3ba7bc529c" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="cff2e5f5-58f3-6008-8c41-ea3ba7bc529c">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/getMyChildTCInfo
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-6cd7e3ab-00f8-2e49-8504-32576863b20e" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="6cd7e3ab-00f8-2e49-8504-32576863b20e" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="6cd7e3ab-00f8-2e49-8504-32576863b20e" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="6cd7e3ab-00f8-2e49-8504-32576863b20e">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/getNotificationByID
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-99f1f2ec-07cd-630a-1e88-d500060198f1" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="99f1f2ec-07cd-630a-1e88-d500060198f1" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="99f1f2ec-07cd-630a-1e88-d500060198f1" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="99f1f2ec-07cd-630a-1e88-d500060198f1">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/getSettingCoin
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-56646adc-afc3-22e3-22e4-d6f41c1aecb9" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="56646adc-afc3-22e3-22e4-d6f41c1aecb9" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="56646adc-afc3-22e3-22e4-d6f41c1aecb9" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="56646adc-afc3-22e3-22e4-d6f41c1aecb9">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/loadChildDataByParent
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-3db0adad-4647-cc61-c914-42dfaa387ee9" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="3db0adad-4647-cc61-c914-42dfaa387ee9" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="3db0adad-4647-cc61-c914-42dfaa387ee9" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="3db0adad-4647-cc61-c914-42dfaa387ee9">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/loadHomeParent
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-7e6b69f4-d742-9bef-5124-447ea00b7953" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="7e6b69f4-d742-9bef-5124-447ea00b7953" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="7e6b69f4-d742-9bef-5124-447ea00b7953" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="7e6b69f4-d742-9bef-5124-447ea00b7953">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/loginParent
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-99074a4e-6953-1067-2935-4d755da3e355" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="99074a4e-6953-1067-2935-4d755da3e355" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="99074a4e-6953-1067-2935-4d755da3e355" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="99074a4e-6953-1067-2935-4d755da3e355">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/login
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-1c122cb2-39c0-6db9-3d22-5a758fdeae8e" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="1c122cb2-39c0-6db9-3d22-5a758fdeae8e" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="1c122cb2-39c0-6db9-3d22-5a758fdeae8e" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="1c122cb2-39c0-6db9-3d22-5a758fdeae8e">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/readNotificationByID
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-5da876d4-21f1-ef8b-18fc-e3b2c933a89d" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="5da876d4-21f1-ef8b-18fc-e3b2c933a89d" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="5da876d4-21f1-ef8b-18fc-e3b2c933a89d" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="5da876d4-21f1-ef8b-18fc-e3b2c933a89d">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/registerParent
+                </span>
+            </a>
+        </div>
+    </li>
+</ul>
+</li>
+<li id="collection-a5bdc8a4-def6-5645-8fb1-69e7c75d14d0" data-id="a5bdc8a4-def6-5645-8fb1-69e7c75d14d0" class="sidebar-collection">
+    <div class="sidebar-collection-head ui-droppable">
+        <div class="collection-head-actions" style="display: none;">
+            <a data-placement="bottom" rel="tooltip" data-original-title="Edit collection" ref="#modal-edit-collection" data-toggle="modal" class="collection-actions-edit" data-id="a5bdc8a4-def6-5645-8fb1-69e7c75d14d0" data-name="Sandbox Sempoa">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;"></a>
+            <a data-placement="bottom" rel="tooltip" data-original-title="Share collection" class="collection-actions-download" data-id="a5bdc8a4-def6-5645-8fb1-69e7c75d14d0">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/share.png" style="vertical-align: middle;"></a>
+            <a rel="tooltip" data-original-title="Delete collection" data-name="Sandbox Sempoa" data-placement="bottom" href="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/index.html#modal-delete-collection" data-toggle="modal" class="collection-actions-delete" data-id="a5bdc8a4-def6-5645-8fb1-69e7c75d14d0">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;"></a>
+        </div>
+        <div class="sidebar-collection-head-name" data-id="a5bdc8a4-def6-5645-8fb1-69e7c75d14d0">
+            Sandbox Sempoa
+        </div>
+    </div>
+    <ul id="collection-requests-a5bdc8a4-def6-5645-8fb1-69e7c75d14d0" class="sidebar-collection-requests ui-sortable" style="">
+    
+    <li id="sidebar-request-fa5a304c-f4cf-f8d5-ef46-5b6878abc1a2" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="fa5a304c-f4cf-f8d5-ef46-5b6878abc1a2" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="fa5a304c-f4cf-f8d5-ef46-5b6878abc1a2" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="fa5a304c-f4cf-f8d5-ef46-5b6878abc1a2">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/addChildByParent
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-281ede2a-286c-3325-092c-5a81a3249405" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="281ede2a-286c-3325-092c-5a81a3249405" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="281ede2a-286c-3325-092c-5a81a3249405" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="281ede2a-286c-3325-092c-5a81a3249405">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/changeParentEmail
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-1261c4df-bd95-2153-d735-1020571a2d9f" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="1261c4df-bd95-2153-d735-1020571a2d9f" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="1261c4df-bd95-2153-d735-1020571a2d9f" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="1261c4df-bd95-2153-d735-1020571a2d9f">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/changeParentName
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-93f77cdf-267b-53fa-275f-2684a1f67241" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="93f77cdf-267b-53fa-275f-2684a1f67241" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="93f77cdf-267b-53fa-275f-2684a1f67241" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="93f77cdf-267b-53fa-275f-2684a1f67241">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/changeParentName
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-ef537cdb-3c39-0e75-1957-d8db6b55e994" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="ef537cdb-3c39-0e75-1957-d8db6b55e994" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="ef537cdb-3c39-0e75-1957-d8db6b55e994" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="ef537cdb-3c39-0e75-1957-d8db6b55e994">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/changeParentPassword
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-14e8e7f4-ce67-8cac-fc2b-f42ea58bf01e" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="14e8e7f4-ce67-8cac-fc2b-f42ea58bf01e" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="14e8e7f4-ce67-8cac-fc2b-f42ea58bf01e" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="14e8e7f4-ce67-8cac-fc2b-f42ea58bf01e">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/changeParentPassword
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-cbb07c9a-be14-a560-87ef-4c0807a0770a" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="cbb07c9a-be14-a560-87ef-4c0807a0770a" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="cbb07c9a-be14-a560-87ef-4c0807a0770a" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="cbb07c9a-be14-a560-87ef-4c0807a0770a">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/changeParentPhoneNr
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-2412de09-2b5d-34aa-7682-d4b86fbdd2e4" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="2412de09-2b5d-34aa-7682-d4b86fbdd2e4" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="2412de09-2b5d-34aa-7682-d4b86fbdd2e4" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="2412de09-2b5d-34aa-7682-d4b86fbdd2e4">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/getMyChildIBOInfo
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-f1e4d265-e309-308c-2f5a-77cea07bbfe1" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="f1e4d265-e309-308c-2f5a-77cea07bbfe1" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="f1e4d265-e309-308c-2f5a-77cea07bbfe1" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="f1e4d265-e309-308c-2f5a-77cea07bbfe1">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/getMyChildName
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-c07276f0-28ae-0207-f7d3-12103158116f" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="c07276f0-28ae-0207-f7d3-12103158116f" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="c07276f0-28ae-0207-f7d3-12103158116f" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="c07276f0-28ae-0207-f7d3-12103158116f">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/getMyChildTCInfo
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-1251d5b9-fb7a-d2dc-2d2f-c57ccb18e3e2" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="1251d5b9-fb7a-d2dc-2d2f-c57ccb18e3e2" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="1251d5b9-fb7a-d2dc-2d2f-c57ccb18e3e2" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="1251d5b9-fb7a-d2dc-2d2f-c57ccb18e3e2">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/getNotificationByID
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-1822b825-d147-366d-08e5-999c267b1140" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="1822b825-d147-366d-08e5-999c267b1140" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="1822b825-d147-366d-08e5-999c267b1140" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="1822b825-d147-366d-08e5-999c267b1140">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/getSettingCoin
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-02d62c50-e422-6a19-bab4-4a3500bef140" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="02d62c50-e422-6a19-bab4-4a3500bef140" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="02d62c50-e422-6a19-bab4-4a3500bef140" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="02d62c50-e422-6a19-bab4-4a3500bef140">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/loadChildDataByParent
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-63c54861-9834-410d-5b6e-383cc2aad616" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="63c54861-9834-410d-5b6e-383cc2aad616" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="63c54861-9834-410d-5b6e-383cc2aad616" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="63c54861-9834-410d-5b6e-383cc2aad616">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/loadHomeParent
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-d17626dc-cfb2-f9da-1c00-cd49bba37ce4" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="d17626dc-cfb2-f9da-1c00-cd49bba37ce4" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="d17626dc-cfb2-f9da-1c00-cd49bba37ce4" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="d17626dc-cfb2-f9da-1c00-cd49bba37ce4">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/loginParent
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-d45ed26b-4550-c1ce-0909-cdf106071563" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="d45ed26b-4550-c1ce-0909-cdf106071563" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="d45ed26b-4550-c1ce-0909-cdf106071563" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="d45ed26b-4550-c1ce-0909-cdf106071563">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/login
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-ec33b545-74af-31ce-b452-775ba2fb771c" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="ec33b545-74af-31ce-b452-775ba2fb771c" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="ec33b545-74af-31ce-b452-775ba2fb771c" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="ec33b545-74af-31ce-b452-775ba2fb771c">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/readNotificationByID
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-9d36dd90-94d7-77cd-06e0-05e7950ca364" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="9d36dd90-94d7-77cd-06e0-05e7950ca364" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="9d36dd90-94d7-77cd-06e0-05e7950ca364" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="9d36dd90-94d7-77cd-06e0-05e7950ca364">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/registerParent
+                </span>
+            </a>
+        </div>
+    </li>
+</ul>
+</li>
+<li id="collection-6a82ba91-6c78-00dc-2f3c-bed0740eb11f" data-id="6a82ba91-6c78-00dc-2f3c-bed0740eb11f" class="sidebar-collection">
+    <div class="sidebar-collection-head ui-droppable">
+        <div class="collection-head-actions" style="display: none;">
+            <a data-placement="bottom" rel="tooltip" data-original-title="Edit collection" ref="#modal-edit-collection" data-toggle="modal" class="collection-actions-edit" data-id="6a82ba91-6c78-00dc-2f3c-bed0740eb11f" data-name="Sandbox Sempoa">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;"></a>
+            <a data-placement="bottom" rel="tooltip" data-original-title="Share collection" class="collection-actions-download" data-id="6a82ba91-6c78-00dc-2f3c-bed0740eb11f">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/share.png" style="vertical-align: middle;"></a>
+            <a rel="tooltip" data-original-title="Delete collection" data-name="Sandbox Sempoa" data-placement="bottom" href="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/index.html#modal-delete-collection" data-toggle="modal" class="collection-actions-delete" data-id="6a82ba91-6c78-00dc-2f3c-bed0740eb11f">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;"></a>
+        </div>
+        <div class="sidebar-collection-head-name" data-id="6a82ba91-6c78-00dc-2f3c-bed0740eb11f">
+            Sandbox Sempoa
+        </div>
+    </div>
+    <ul id="collection-requests-6a82ba91-6c78-00dc-2f3c-bed0740eb11f" class="sidebar-collection-requests ui-sortable" style="">
+    
+    <li id="sidebar-request-2c33d44b-cc0f-e0b5-4fed-42672b9a1533" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="2c33d44b-cc0f-e0b5-4fed-42672b9a1533" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="2c33d44b-cc0f-e0b5-4fed-42672b9a1533" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="2c33d44b-cc0f-e0b5-4fed-42672b9a1533">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/addChildByParent
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-5903a87b-d405-585f-d20d-4e1d50c94001" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="5903a87b-d405-585f-d20d-4e1d50c94001" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="5903a87b-d405-585f-d20d-4e1d50c94001" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="5903a87b-d405-585f-d20d-4e1d50c94001">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/changeParentEmail
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-b47fa4ff-4b19-0d1a-0163-8c1579227f74" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="b47fa4ff-4b19-0d1a-0163-8c1579227f74" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="b47fa4ff-4b19-0d1a-0163-8c1579227f74" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="b47fa4ff-4b19-0d1a-0163-8c1579227f74">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/changeParentName
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-0f2daa2f-4582-ac25-ab60-c06a2c4c3cb3" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="0f2daa2f-4582-ac25-ab60-c06a2c4c3cb3" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="0f2daa2f-4582-ac25-ab60-c06a2c4c3cb3" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="0f2daa2f-4582-ac25-ab60-c06a2c4c3cb3">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/changeParentName
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-deb1eb76-be80-f28d-5797-100c6e37d6b9" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="deb1eb76-be80-f28d-5797-100c6e37d6b9" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="deb1eb76-be80-f28d-5797-100c6e37d6b9" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="deb1eb76-be80-f28d-5797-100c6e37d6b9">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/changeParentPassword
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-cbfe2442-58d9-88d2-3025-b0d25ea74592" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="cbfe2442-58d9-88d2-3025-b0d25ea74592" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="cbfe2442-58d9-88d2-3025-b0d25ea74592" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="cbfe2442-58d9-88d2-3025-b0d25ea74592">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/changeParentPassword
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-6d210986-7741-e391-e29f-23647d0e4149" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="6d210986-7741-e391-e29f-23647d0e4149" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="6d210986-7741-e391-e29f-23647d0e4149" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="6d210986-7741-e391-e29f-23647d0e4149">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/changeParentPhoneNr
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-50c4488b-0e26-2807-0ac8-bfd067dab2d3" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="50c4488b-0e26-2807-0ac8-bfd067dab2d3" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="50c4488b-0e26-2807-0ac8-bfd067dab2d3" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="50c4488b-0e26-2807-0ac8-bfd067dab2d3">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/getMyChildIBOInfo
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-b60f25a7-bb9c-156b-2ca4-a7d34d0b3a1b" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="b60f25a7-bb9c-156b-2ca4-a7d34d0b3a1b" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="b60f25a7-bb9c-156b-2ca4-a7d34d0b3a1b" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="b60f25a7-bb9c-156b-2ca4-a7d34d0b3a1b">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/getMyChildName
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-a8d96441-23ca-0c43-aac6-0a8a6550a7b7" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="a8d96441-23ca-0c43-aac6-0a8a6550a7b7" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="a8d96441-23ca-0c43-aac6-0a8a6550a7b7" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="a8d96441-23ca-0c43-aac6-0a8a6550a7b7">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/getMyChildTCInfo
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-965d069e-d013-f8a2-efc7-7a1db5933f95" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="965d069e-d013-f8a2-efc7-7a1db5933f95" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="965d069e-d013-f8a2-efc7-7a1db5933f95" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="965d069e-d013-f8a2-efc7-7a1db5933f95">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/getNotificationByID
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-b28097a2-2d7e-5d21-1996-98a5397605f9" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="b28097a2-2d7e-5d21-1996-98a5397605f9" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="b28097a2-2d7e-5d21-1996-98a5397605f9" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="b28097a2-2d7e-5d21-1996-98a5397605f9">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/getSettingCoin
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-ad056971-6c91-cfd6-c506-a6f8d5a9aff0" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="ad056971-6c91-cfd6-c506-a6f8d5a9aff0" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="ad056971-6c91-cfd6-c506-a6f8d5a9aff0" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="ad056971-6c91-cfd6-c506-a6f8d5a9aff0">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/loadChildDataByParent
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-642111f8-1d61-d4b3-d7e8-f3f1c3ba5402" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="642111f8-1d61-d4b3-d7e8-f3f1c3ba5402" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="642111f8-1d61-d4b3-d7e8-f3f1c3ba5402" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="642111f8-1d61-d4b3-d7e8-f3f1c3ba5402">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/loadHomeParent
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-d98b9d14-3c63-e56d-9c53-75499d470303" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="d98b9d14-3c63-e56d-9c53-75499d470303" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="d98b9d14-3c63-e56d-9c53-75499d470303" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="d98b9d14-3c63-e56d-9c53-75499d470303">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/loginParent
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-3f15a689-8e55-8982-4f30-3de812e82605" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="3f15a689-8e55-8982-4f30-3de812e82605" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="3f15a689-8e55-8982-4f30-3de812e82605" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="3f15a689-8e55-8982-4f30-3de812e82605">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/login
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-4b86f9d8-716c-fa04-310a-1eff6042831b" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="4b86f9d8-716c-fa04-310a-1eff6042831b" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="4b86f9d8-716c-fa04-310a-1eff6042831b" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="4b86f9d8-716c-fa04-310a-1eff6042831b">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/readNotificationByID
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-c217047e-b19e-8ec0-dd8c-5a05835b2642" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="c217047e-b19e-8ec0-dd8c-5a05835b2642" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="c217047e-b19e-8ec0-dd8c-5a05835b2642" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="c217047e-b19e-8ec0-dd8c-5a05835b2642">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/registerParent
+                </span>
+            </a>
+        </div>
+    </li>
+</ul>
+</li>
+<li id="collection-5119ac72-b34d-a53b-03fb-9851b237336a" data-id="5119ac72-b34d-a53b-03fb-9851b237336a" class="sidebar-collection">
+    <div class="sidebar-collection-head ui-droppable">
+        <div class="collection-head-actions" style="display: none;">
+            <a data-placement="bottom" rel="tooltip" data-original-title="Edit collection" ref="#modal-edit-collection" data-toggle="modal" class="collection-actions-edit" data-id="5119ac72-b34d-a53b-03fb-9851b237336a" data-name="Sandbox Sempoa">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;"></a>
+            <a data-placement="bottom" rel="tooltip" data-original-title="Share collection" class="collection-actions-download" data-id="5119ac72-b34d-a53b-03fb-9851b237336a">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/share.png" style="vertical-align: middle;"></a>
+            <a rel="tooltip" data-original-title="Delete collection" data-name="Sandbox Sempoa" data-placement="bottom" href="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/index.html#modal-delete-collection" data-toggle="modal" class="collection-actions-delete" data-id="5119ac72-b34d-a53b-03fb-9851b237336a">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;"></a>
+        </div>
+        <div class="sidebar-collection-head-name" data-id="5119ac72-b34d-a53b-03fb-9851b237336a">
+            Sandbox Sempoa
+        </div>
+    </div>
+    <ul id="collection-requests-5119ac72-b34d-a53b-03fb-9851b237336a" class="sidebar-collection-requests ui-sortable" style="">
+    
+    <li id="sidebar-request-87670e55-4d50-72fd-b41d-d43577fd7f94" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="87670e55-4d50-72fd-b41d-d43577fd7f94" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="87670e55-4d50-72fd-b41d-d43577fd7f94" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="87670e55-4d50-72fd-b41d-d43577fd7f94">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/addChildByParent
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-3d584e1e-950f-319c-6bb7-d0a6d59570b5" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="3d584e1e-950f-319c-6bb7-d0a6d59570b5" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="3d584e1e-950f-319c-6bb7-d0a6d59570b5" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="3d584e1e-950f-319c-6bb7-d0a6d59570b5">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/changeParentEmail
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-bc6f6072-38b0-75f9-d600-2f7aa2d26a50" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="bc6f6072-38b0-75f9-d600-2f7aa2d26a50" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="bc6f6072-38b0-75f9-d600-2f7aa2d26a50" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="bc6f6072-38b0-75f9-d600-2f7aa2d26a50">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/changeParentName
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-c9b0358b-abed-e8d5-d024-a0f5a7a978bf" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="c9b0358b-abed-e8d5-d024-a0f5a7a978bf" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="c9b0358b-abed-e8d5-d024-a0f5a7a978bf" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="c9b0358b-abed-e8d5-d024-a0f5a7a978bf">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/changeParentName
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-32023ef3-e53e-b78d-6bde-8dc30d411629" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="32023ef3-e53e-b78d-6bde-8dc30d411629" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="32023ef3-e53e-b78d-6bde-8dc30d411629" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="32023ef3-e53e-b78d-6bde-8dc30d411629">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/changeParentPassword
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-9b456717-4b89-9996-34e7-bf6328861e27" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="9b456717-4b89-9996-34e7-bf6328861e27" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="9b456717-4b89-9996-34e7-bf6328861e27" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="9b456717-4b89-9996-34e7-bf6328861e27">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/changeParentPassword
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-92c9ec33-eec1-72f8-69c2-606f796aa59a" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="92c9ec33-eec1-72f8-69c2-606f796aa59a" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="92c9ec33-eec1-72f8-69c2-606f796aa59a" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="92c9ec33-eec1-72f8-69c2-606f796aa59a">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/changeParentPhoneNr
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-3294f340-4f92-75d1-2ef3-9b947383fb8d" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="3294f340-4f92-75d1-2ef3-9b947383fb8d" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="3294f340-4f92-75d1-2ef3-9b947383fb8d" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="3294f340-4f92-75d1-2ef3-9b947383fb8d">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/getMyChildIBOInfo
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-1c53e9ee-3183-7768-6383-9c13cce53638" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="1c53e9ee-3183-7768-6383-9c13cce53638" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="1c53e9ee-3183-7768-6383-9c13cce53638" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="1c53e9ee-3183-7768-6383-9c13cce53638">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/getMyChildName
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-f0549ead-eab4-0c51-4b48-338ac23f9b21" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="f0549ead-eab4-0c51-4b48-338ac23f9b21" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="f0549ead-eab4-0c51-4b48-338ac23f9b21" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="f0549ead-eab4-0c51-4b48-338ac23f9b21">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/getMyChildTCInfo
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-874ba712-d013-e3ab-eb68-cc550e079a98" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="874ba712-d013-e3ab-eb68-cc550e079a98" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="874ba712-d013-e3ab-eb68-cc550e079a98" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="874ba712-d013-e3ab-eb68-cc550e079a98">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/getNotificationByID
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-4ca813f0-e3eb-d932-7337-0e3a02d71c52" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="4ca813f0-e3eb-d932-7337-0e3a02d71c52" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="4ca813f0-e3eb-d932-7337-0e3a02d71c52" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="4ca813f0-e3eb-d932-7337-0e3a02d71c52">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/getSettingCoin
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-ca4d6215-a21f-1ec3-7280-fb24d38f46ef" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="ca4d6215-a21f-1ec3-7280-fb24d38f46ef" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="ca4d6215-a21f-1ec3-7280-fb24d38f46ef" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="ca4d6215-a21f-1ec3-7280-fb24d38f46ef">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/loadChildDataByParent
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-9400fd36-9f66-c41f-012a-f56ed0e3926e" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="9400fd36-9f66-c41f-012a-f56ed0e3926e" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="9400fd36-9f66-c41f-012a-f56ed0e3926e" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="9400fd36-9f66-c41f-012a-f56ed0e3926e">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/loadHomeParent
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-3f5e611b-3a90-cb87-c44c-550fa6a84c16" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="3f5e611b-3a90-cb87-c44c-550fa6a84c16" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="3f5e611b-3a90-cb87-c44c-550fa6a84c16" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="3f5e611b-3a90-cb87-c44c-550fa6a84c16">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/loginParent
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-f20f2926-556c-2810-aab6-61e1cf25fc2b" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="f20f2926-556c-2810-aab6-61e1cf25fc2b" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="f20f2926-556c-2810-aab6-61e1cf25fc2b" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="f20f2926-556c-2810-aab6-61e1cf25fc2b">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/login
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-84bc43f3-93a9-b037-7889-700520ce6d15" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="84bc43f3-93a9-b037-7889-700520ce6d15" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="84bc43f3-93a9-b037-7889-700520ce6d15" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="84bc43f3-93a9-b037-7889-700520ce6d15">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/readNotificationByID
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-52469faa-db6b-5ace-d92d-9bb7e0a99d69" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="52469faa-db6b-5ace-d92d-9bb7e0a99d69" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="52469faa-db6b-5ace-d92d-9bb7e0a99d69" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="52469faa-db6b-5ace-d92d-9bb7e0a99d69">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/registerParent
+                </span>
+            </a>
+        </div>
+    </li>
+</ul>
+</li>
+<li id="collection-1651517d-1272-a1d4-dfdd-ce865eafec9d" data-id="1651517d-1272-a1d4-dfdd-ce865eafec9d" class="sidebar-collection">
+    <div class="sidebar-collection-head ui-droppable">
+        <div class="collection-head-actions" style="display: none;">
+            <a data-placement="bottom" rel="tooltip" data-original-title="Edit collection" ref="#modal-edit-collection" data-toggle="modal" class="collection-actions-edit" data-id="1651517d-1272-a1d4-dfdd-ce865eafec9d" data-name="Sandbox Sempoa">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;"></a>
+            <a data-placement="bottom" rel="tooltip" data-original-title="Share collection" class="collection-actions-download" data-id="1651517d-1272-a1d4-dfdd-ce865eafec9d">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/share.png" style="vertical-align: middle;"></a>
+            <a rel="tooltip" data-original-title="Delete collection" data-name="Sandbox Sempoa" data-placement="bottom" href="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/index.html#modal-delete-collection" data-toggle="modal" class="collection-actions-delete" data-id="1651517d-1272-a1d4-dfdd-ce865eafec9d">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;"></a>
+        </div>
+        <div class="sidebar-collection-head-name" data-id="1651517d-1272-a1d4-dfdd-ce865eafec9d">
+            Sandbox Sempoa
+        </div>
+    </div>
+    <ul id="collection-requests-1651517d-1272-a1d4-dfdd-ce865eafec9d" class="sidebar-collection-requests ui-sortable" style="">
+    
+    <li id="sidebar-request-5e324971-ba77-1bb3-bb33-ab9702d04c98" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="5e324971-ba77-1bb3-bb33-ab9702d04c98" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="5e324971-ba77-1bb3-bb33-ab9702d04c98" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="5e324971-ba77-1bb3-bb33-ab9702d04c98">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/loginParent
+                </span>
+            </a>
+        </div>
+    </li>
+
+    
+    <li id="sidebar-request-d1b8d978-0f5f-314b-a617-06df8ae5e532" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="d1b8d978-0f5f-314b-a617-06df8ae5e532" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="d1b8d978-0f5f-314b-a617-06df8ae5e532" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="d1b8d978-0f5f-314b-a617-06df8ae5e532">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                sandbox-sempoa.indomegabyte.com/WSSempoa<br>App/registerParent
+                </span>
+            </a>
+        </div>
+    </li>
+</ul>
+</li>
+<li id="collection-32844b14-7953-7b5a-4b1a-19862e23a785" data-id="32844b14-7953-7b5a-4b1a-19862e23a785" class="sidebar-collection">
+    <div class="sidebar-collection-head ui-droppable">
+        <div class="collection-head-actions" style="display: none;">
+            <a data-placement="bottom" rel="tooltip" data-original-title="Edit collection" ref="#modal-edit-collection" data-toggle="modal" class="collection-actions-edit" data-id="32844b14-7953-7b5a-4b1a-19862e23a785" data-name="login">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;"></a>
+            <a data-placement="bottom" rel="tooltip" data-original-title="Share collection" class="collection-actions-download" data-id="32844b14-7953-7b5a-4b1a-19862e23a785">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/share.png" style="vertical-align: middle;"></a>
+            <a rel="tooltip" data-original-title="Delete collection" data-name="login" data-placement="bottom" href="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/index.html#modal-delete-collection" data-toggle="modal" class="collection-actions-delete" data-id="32844b14-7953-7b5a-4b1a-19862e23a785">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;"></a>
+        </div>
+        <div class="sidebar-collection-head-name" data-id="32844b14-7953-7b5a-4b1a-19862e23a785">
+            login
+        </div>
+    </div>
+    <ul id="collection-requests-32844b14-7953-7b5a-4b1a-19862e23a785" class="sidebar-collection-requests ui-sortable" style="">
+    
+    <li id="sidebar-request-14088193-2c8c-403d-542e-3e51b3e1924a" class="sidebar-collection-request sidebar-request clearfix" style="">
+        <div class="request-actions">
+            <a data-id="14088193-2c8c-403d-542e-3e51b3e1924a" class="request-actions-edit">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/edit.png" style="vertical-align: middle;">
+            </a>
+            <a data-id="14088193-2c8c-403d-542e-3e51b3e1924a" class="request-actions-delete">
+                <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png" style="vertical-align: middle;">
+            </a>
+        </div>
+        <div class="request request-actions-load" data-id="14088193-2c8c-403d-542e-3e51b3e1924a">
+            <a><span class="label label-method-POST">POST</span>
+                <span class="request-name">
+                login
+                </span>
+            </a>
+        </div>
+    </li>
+</ul>
+</li>
+</ul>
+            </div>
+        </div>
+    </div><div id="sidebar-filler"></div></div></div></div>
+<div id="main" class="content" style="width: 999px;">
+<section id="request">
+    <div id="request-builder" style="display: block;">
+        <div id="request-types" class="clearfix">
+            <ul class="request-helper-tabs">
+                <li class="active" data-id="normal">Normal</li>
+                <li data-id="basicAuth">Basic Auth</li>
+                <li data-id="digestAuth">Digest Auth</li>
+                <li data-id="oAuth1">OAuth 1.0</li>
+            </ul>
+            <div id="environment-selector-wrapper">
+                <div id="environment-quicklook-wrapper">
+                    <a id="environment-quicklook">
+                        <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/eye.png">
+                    </a>
+                </div>
+                <div id="environment-quicklook-content" class="clearfix">
+                    <div id="environment-quicklook-environments">
+                        <h6>No environment</h6>
+                        <ul></ul>
+                    </div>
+                    <div id="environment-quicklook-globals">
+                        <h6>Globals</h6>
+                        <ul></ul>
+                    </div>
+                </div>
+                <div id="environment-selector">
+                    <div class="btn-group">
+                        <a data-toggle="dropdown">
+                            <span class="environment-list-item-selected">No environment</span>
+                            <span class="caret" style="margin-top: 8px;"></span></a>
+                        <ul class="dropdown-menu"><li><a class="environment-list-item-noenvironment">No environment</a></li>
+<li class="divider"></li>
+<li><a href="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/index.html#modal-environments" data-toggle="modal" data-keyboard="true">Manage environments</a></li></ul>
+                    </div>
+                </div>
+            </div>
+            <div id="broadcasts" class="btn-group">
+                <a data-toggle="dropdown" rel="tooltip" id="broadcasts-count" data-original-title="" title="" class="no-new-broadcasts">0</a>
+                <ul class="dropdown-menu">
+    <li class="broadcast">
+<div>Run Postman collections with Newman in your terminal. Integrate them with build systems or use a cron to run periodically! <a href="http://blog.getpostman.com/index.php/2014/05/12/meet-newman-a-command-line-companion-for-postman/">Read more</a></div>
+</li>
+
+    <li class="broadcast">
+<div>Upgrade to v0.9.x! Improved collections, automated tests, restricted headers and much more! Check out <a href="http://www.getpostman.com/link/legacy_jetpacks_blog">the blog</a> for more details.</div>
+</li>
+
+    <li class="broadcast">
+<div>v0.8.0.3 is now available on the Chrome Web Store. This is a bug fix release. If you encounter any issues, please file an issue on Github!</div>
+</li>
+
+    <li class="broadcast">
+<div>Hi! This is the broadcasts dropdown. Important stuff about Postman will come here in the future.</div>
+</li>
+
+
+</ul>
+            </div>
+            <div class="preferences">
+                <a data-toggle="modal" href="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/index.html#modal-shortcuts" rel="tooltip" data-placement="bottom" data-original-title="Shortcuts">
+                    <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/keyboard_wireless.png" style="vertical-align: middle;"></a>
+                <a href="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/index.html#modal-settings" data-toggle="modal" rel="tooltip" data-placement="bottom" data-original-title="Settings">
+                    <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/settings.png" style="vertical-align: middle;"></a>
+            </div>
+        </div>
+        <div id="request-helpers" class="clearfix" style="display: none;">
+            <div id="request-helper-normal" class="request-helpers" style="display: block;"></div>
+            <div id="request-helper-basicAuth" class="request-helpers" style="display: none;">
+                <div class="request-helper-form-container">
+                    <form class="form form-horizontal">
+                        <div class="control-group">
+                            <label class="control-label">Username</label>
+
+                            <div class="controls">
+                                <input type="text" id="request-helper-basicAuth-username" class="clean-input">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Password</label>
+
+                            <div class="controls">
+                                <input type="password" id="request-helper-basicAuth-password" class="clean-input">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="controls">
+                                <a class="btn btn-secondary request-helper-submit" data-type="basic">Refresh headers</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="request-helper-form-description">
+                    <h4>Note</h4>
+                    The authorization header will be generated and added as a custom header.
+                </div>
+            </div>
+            <div id="request-helper-digestAuth" class="request-helpers" style="display: none;">
+                <div class="request-helper-form-container">
+                    <form class="form-horizontal">
+                        <div class="control-group">
+                            <label class="control-label">Username</label>
+
+                            <div class="controls">
+                                <input type="text" id="request-helper-digestAuth-username" class="clean-input">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Realm</label>
+
+                            <div class="controls">
+                                <input type="text" id="request-helper-digestAuth-realm" class="clean-input">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Password</label>
+
+                            <div class="controls">
+                                <input type="password" id="request-helper-digestAuth-password" class="clean-input">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Nonce</label>
+
+                            <div class="controls">
+                                <input type="text" id="request-helper-digestAuth-nonce" class="clean-input">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Algorithm</label>
+
+                            <div class="controls">
+                                <input type="text" id="request-helper-digestAuth-algorithm" class="clean-input" placeholder="MD5/MD5-sess, default = MD5" value="MD5">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">qop</label>
+
+                            <div class="controls">
+                                <input type="text" id="request-helper-digestAuth-qop" class="clean-input">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Nonce count</label>
+
+                            <div class="controls">
+                                <input type="text" id="request-helper-digestAuth-nonceCount" class="clean-input">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Client nonce</label>
+
+                            <div class="controls">
+                                <input type="text" id="request-helper-digestAuth-clientNonce" class="clean-input">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Opaque</label>
+
+                            <div class="controls">
+                                <input type="text" id="request-helper-digestAuth-opaque" class="clean-input">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="controls">
+                                <a class="btn btn-secondary request-helper-submit" data-type="digest">Refresh headers</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="request-helper-form-description">
+                    <h4>Note</h4>
+                    The authorization header will be generated and added as a custom header.
+                </div>
+            </div>
+            <div id="request-helper-oAuth1" class="request-helpers" style="display: none;">
+                <div class="request-helper-form-container">
+                    <form class="form-horizontal">
+                        <div class="control-group">
+                            <label class="control-label">Consumer Key</label>
+
+                            <div class="controls">
+                                <input type="text" id="request-helper-oauth1-consumerKey" class="clean-input signatureParam" key="oauth_consumer_key">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Consumer Secret</label>
+
+                            <div class="controls">
+                                <input type="text" id="request-helper-oauth1-consumerSecret" class="clean-input" key="oauth_consumer_secret">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Token</label>
+
+                            <div class="controls">
+                                <input type="text" id="request-helper-oauth1-token" class="clean-input signatureParam" key="oauth_token">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Token Secret</label>
+
+                            <div class="controls">
+                                <input type="text" id="request-helper-oauth1-tokenSecret" class="clean-input" key="oauth_token_secret">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Signature Method</label>
+
+                            <div class="controls">
+                                <input type="text" id="request-helper-oauth1-signatureMethod" class="clean-input signatureParam" value="HMAC-SHA1" key="oauth_signature_method">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Timestamp</label>
+
+                            <div class="controls">
+                                <input type="text" id="request-helper-oauth1-timestamp" class="clean-input signatureParam" key="oauth_timestamp">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Nonce</label>
+
+                            <div class="controls">
+                                <input type="text" id="request-helper-oauth1-nonce" class="clean-input signatureParam" key="oauth_nonce">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Version</label>
+
+                            <div class="controls">
+                                <input type="text" id="request-helper-oauth1-version" class="clean-input signatureParam" value="1.0" key="oauth_version">
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label">Realm</label>
+
+                            <div class="controls">
+                                <input type="text" id="request-helper-oauth1-realm" class="clean-input" placeholder="Optional" value="" key="oauth_realm">
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label">Add params to header</label>
+                            <div class="controls">
+                                <input type="checkbox" class="checkbox" id="request-helper-oauth1-header">
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label">Auto add parameters</label>
+                            <div class="controls">
+                                <input type="checkbox" class="checkbox" id="request-helper-oauth1-auto">
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label">Keep empty parameters</label>
+                            <div class="controls">
+                                <input type="checkbox" class="checkbox" id="request-helper-keep-empty-parameters">
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <div class="controls">
+                                <a class="btn btn-secondary request-helper-submit" data-type="oAuth1">
+                                    Refresh request
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="request-helper-form-description">
+                    <h4>Note</h4>
+                    If auto addition is enabled, OAuth parameters will be added when you send the request
+                </div>
+            </div>
+        </div>
+
+        <div id="request-meta" style="display: none;">
+            <div class="request-meta-actions">
+                <a class="request-meta-actions-togglesize" data-action="minimize">
+                    <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/circle_minus.png">
+                </a>
+            </div>
+            <h5 id="request-name"></h5><span id="request-last-saved-time">Saved</span>
+
+            <div id="request-description-container">
+                <p id="request-description"></p>
+
+                <div id="request-samples">
+                    <h4>Sample responses</h4>
+                    <table class="table table-striped table-bordered"></table>
+                </div>
+            </div>
+        </div>
+
+        <div id="request-url" class="clearfix">
+            <div id="request-url-wrapper">
+                <div id="request-url-container">
+                    <input type="text" name="url" id="url" tabindex="1" class="input-text-light ui-autocomplete-input" placeholder="Enter request URL here" autocomplete="off"><span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+                </div>
+            </div>
+            <div id="request-modifiers">
+                <div id="request-method-container">
+                    <select id="request-method-selector">
+                        <option value="GET" selected="">GET</option>
+                        <option value="POST">POST</option>
+                        <option value="PUT">PUT</option>
+                        <option value="PATCH">PATCH</option>
+                        <option value="DELETE">DELETE</option>
+                        <option value="COPY">COPY</option>
+                        <option value="HEAD">HEAD</option>
+                        <option value="OPTIONS">OPTIONS</option>
+                        <option value="LINK">LINK</option>
+                        <option value="UNLINK">UNLINK</option>
+                        <option value="PURGE">PURGE</option>
+                    </select>
+                </div>
+                <div id="request-url-buttons-container">
+                    <button class="btn" id="url-keyvaleditor-actions-open"><i class="icon-edit"></i> URL params
+                    </button>
+                    <button class="btn" id="headers-keyvaleditor-actions-open"><i class="icon-edit"></i> Headers (<span class="headers-count">0</span>)
+                    </button>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+        <div id="url-keyvaleditor-container" class="row" style="margin-left: 0px; display: none;">
+            <div id="url-keyvaleditor"><div class="keyvalueeditor-row keyvalueeditor-last"><input type="text" class="keyvalueeditor-key" placeholder="URL Parameter Key" name="keyvalueeditor-key" "=""><input type="text" class="keyvalueeditor-value keyvalueeditor-value-text" placeholder="Value" name="keyvalueeditor-value" "=""></div></div>
+        </div>
+
+        <div id="headers-keyvaleditor-container" class="row clearfix" style="margin-left: 0px; display: none;">
+            <div class="keyvaleditor-left">
+                <div id="headers-keyvaleditor"><div class="keyvalueeditor-row keyvalueeditor-last"><input type="text" class="keyvalueeditor-key" placeholder="Header" name="keyvalueeditor-key" "=""><input type="text" class="keyvalueeditor-value keyvalueeditor-value-text" placeholder="Value" name="keyvalueeditor-value" "=""></div></div>
+            </div>
+            <div class="keyvaleditor-right">
+                <div id="headers-keyvaleditor-actions">
+                    <input type="button" id="headers-keyvaleditor-actions-manage-presets" class="btn" rel="popover" data-trigger="hover" data-placement="bottom" data-content="Presets let you define groups of headers for quick addition" data-original-title="Header presets" value="Manage presets"><br>
+                </div>
+            </div>
+        </div>
+
+        <div id="data" style="display: block;">
+            <div class="clearfix">
+                <div id="data-mode-selector" class="btn-group clearfix" data-toggle="buttons-radio">
+                    <a class="btn active" data-mode="params">form-data</a>
+                    <a class="btn" data-mode="urlencoded">x-www-form-urlencoded</a>
+                    <a class="btn" data-mode="raw">raw</a>
+                </div>
+                <div id="body-editor-mode-selector" style="display: none;">
+                    <div class="btn-group">
+                        <a class="dropdown" data-toggle="dropdown">
+                            <span id="body-editor-mode-item-selected">Text</span>
+                            <span class="caret" style="margin-top: 8px;"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a data-editor-mode="text" data-language="text">Text</a></li>
+                            <li><a data-editor-mode="javascript" data-language="json">JSON</a></li>
+                            <li><a data-editor-mode="xml" data-language="xml">XML</a></li>
+                            <li><a data-editor-mode="xml" data-language="html">HTML</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="body-data-containers">
+                <div id="formdata-keyvaleditor-container" class="row" style="margin-left: 0px; display: block;">
+                    <div id="formdata-keyvaleditor"><div class="keyvalueeditor-row"><input type="text" class="keyvalueeditor-key" placeholder="Key" name="keyvalueeditor-kode_siswa" value="kode_siswa"><input type="text" class="keyvalueeditor-value keyvalueeditor-value-text" placeholder="Value" name="keyvalueeditor-1406030001" value="1406030001"><input type="file" multiple="" class="keyvalueeditor-value keyvalueeditor-value-file" placeholder="Value" name="keyvalueeditor-1406030001" value="1406030001" style="display: none;"><select class="keyvalueeditor-valueTypeSelector"><option value="text" selected="">Text</option><option value="file">File</option></select><a tabindex="-1" class="keyvalueeditor-delete"><img class="deleteButton" src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/delete.png"></a></div><div class="keyvalueeditor-row keyvalueeditor-last"><input type="text" class="keyvalueeditor-key" placeholder="Key" name="keyvalueeditor-key" "=""><input type="text" class="keyvalueeditor-value keyvalueeditor-value-text" placeholder="Value" name="keyvalueeditor-value" "=""><input type="file" multiple="" class="keyvalueeditor-value keyvalueeditor-value-file" placeholder="Value" name="keyvalueeditor-value" value="" style="display: none;"><select class="keyvalueeditor-valueTypeSelector"><option value="text" selected="">Text</option><option value="file">File</option></select></div></div>
+                </div>
+                <div id="urlencoded-keyvaleditor-container" class="row" style="margin-left: 0px; display: none;">
+                    <div id="urlencoded-keyvaleditor"><div class="keyvalueeditor-row keyvalueeditor-last"><input type="text" class="keyvalueeditor-key" placeholder="Key" name="keyvalueeditor-key" "=""><input type="text" class="keyvalueeditor-value keyvalueeditor-value-text" placeholder="Value" name="keyvalueeditor-value" "=""></div></div>
+                </div>
+                <div id="body-data-container" style="display: none;">
+                    <textarea name="data" id="body" tabindex="4" class="inputText"></textarea>
+                    <pre id="body-editor-mode-selector-format-result">                    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="request-preview" style="display: none;">
+        <div id="request-preview-header" class="dropdown">
+            <span class="request-preview-header-title">Preview</span>
+            <a data-toggle="dropdown-toggle" class="dropdown-toggle request-preview-header-limitations">
+                Limitations
+            </a>
+            <ul class="dropdown-menu" role="menu">
+                <li>Automatic headers sent by Chrome can not be previewed</li>
+                <li>Can not preview form-data files</li>
+            </ul>
+        </div>
+        <div id="request-preview-content">
+        </div>
+    </div>
+
+<div id="request-actions" class="clearfix">
+    <div id="request-actions-primary">
+        <button class="btn btn-primary" data-loading-text="Fetching data..." type="button" data-complete-text="Send request" id="submit-request" tabindex="5">
+            Send
+        </button>
+        <button class="btn" id="update-request-in-collection" style="display: none;">Save
+        </button>
+        <button class="btn" data-action="preview" id="preview-request">Preview</button>
+        <button class="btn" id="add-to-collection" href="#modal-add-to-collection" data-toggle="modal" data-backdrop="static" data-keyboard="true">Add to collection
+        </button>
+    </div>
+    <div id="request-actions-secondary">
+        <button class="btn btn-danger" id="request-actions-reset">Reset</button>
+    </div>
+</div>
+</section>
+
+<section id="response" style="display: none;">
+    <div id="response-waiting-container">
+        <h3>Loading...</h3>
+        <button id="cancel-request" class="btn">Cancel request</button>
+    </div>
+    <div id="response-failed-container">
+        <h3>Could not get any response</h3>
+
+        <p>
+            This seems to be like an error connecting to <span id="connection-error-url"></span>.
+            The response status was 0.<br>
+            Check out the
+            <a href="http://www.w3.org/TR/XMLHttpRequest/#the-status-attribute" target="_blank">W3C XMLHttpRequest Level
+                2 spec</a>
+            for more details about when this happens.
+        </p>
+    </div>
+    <div id="response-success-container">
+        <div id="response-top-bar">
+            <ul class="response-tabs clearfix">
+                <li class="active" data-section="body">Body</li>
+                <li data-section="cookies" id="response-tabs-cookies">Cookies</li>
+                <li data-section="headers">Headers</li>
+            </ul>
+            <div id="response-status">
+            </div>
+
+            <div id="response-time">
+                <span class="label">Time</span>
+                <span class="data">0 millisecs</span>
+            </div>
+
+            <div id="response-sample-status" class="span1">
+                <span class="label label-info">Sample</span>
+            </div>
+        </div>
+
+        <div id="response-data-container" class="clearfix">
+            <div id="response-data" style="display:none" class="clearfix">
+                <div id="response-data-options" class="clearfix">
+                    <div id="response-formatting" class="btn-group clearfix" data-toggle="buttons-radio">
+                        <a data-type="parsed" class="btn">Pretty</a>
+                        <a data-type="raw" class="btn">Raw</a>
+                        <a data-type="preview" class="btn">Preview</a>
+                    </div>
+                    <div id="response-actions" class="clearfix">
+                        <a class="btn" rel="tooltip" data-placement="bottom" data-original-title="Toggle size" id="response-body-toggle">
+                            <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/full-screen-alt-4.png" style="width:16px; height:16px; vertical-align: middle;">
+                        </a>
+                    </div>
+                    <div id="response-pretty-modifiers" class="clearfix">
+                        <a class="btn" rel="tooltip" data-placement="bottom" data-original-title="Toggle wrapping" id="response-body-line-wrapping">
+                            <img src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/img/right_indent.png" style="width:16px; height:16px; vertical-align: middle;">
+                        </a>
+
+                        <div id="response-language" class="btn-group clearfix" data-toggle="buttons-radio">
+                            <a data-mode="javascript" class="btn">JSON</a>
+                            <a data-mode="html" class="btn">XML</a>
+                        </div>
+                    </div>
+                    <div id="response-collection-request-actions" class="clearfix">
+                        <span id="response-sample-save-start-container">
+                            <a class="btn" rel="tooltip" data-placement="bottom" data-original-title="Save sample response" id="response-sample-save-start">
+                                <i class="icon-bookmark"></i>
+                            </a>
+                        </span>
+                        <span id="response-sample-save-form">
+                            <form class="form-inline">
+                                <input type="text" class="input-small" placeholder="Name" id="response-sample-name">
+                                <a class="btn" rel="tooltip" data-placement="bottom" data-original-title="Save" id="response-sample-save">
+                                    <i class="icon-ok-sign"></i>
+                                </a>
+                                <a class="btn" rel="tooltip" data-placement="bottom" data-original-title="Cancel" id="response-sample-cancel">
+                                    <i class="icon-remove-sign"></i>
+                                </a>
+                            </form>
+                        </span>
+                    </div>
+
+                </div>
+                <div id="response-editors">
+                    <div id="response-as-code">
+                        <textarea id="code-data" data-formatted="false"></textarea>
+                    </div>
+                    <div id="response-as-text">
+                        <textarea id="code-data-raw"></textarea>
+                    </div>
+                    <div id="response-as-preview">
+                        <iframe src="./Postman_files/saved_resource.html"></iframe>
+                    </div>
+                    <div id="response-as-image"></div>
+                </div>
+            </div>
+        </div>
+        <div id="response-cookies-container">
+            <table id="response-cookies" class="table table-striped table-bordered">
+                <thead>
+                <tr><th>Name</th>
+                <th>Value</th>
+                <th>Domain</th>
+                <th>Path</th>
+                <th>Expires</th>
+                <th>HTTP</th>
+                <th>Secure</th>
+                </tr></thead>
+                <tbody id="response-cookies-items">
+                </tbody>
+            </table>
+        </div>
+        <div id="response-headers-container">
+            <ul id="response-headers"></ul>
+        </div>
+    </div>
+</section>
+</div>
+</div>
+<div id="modal-new-collection" class="modal fade">
+    <div class="modal-header">
+        <a class="close" data-dismiss="modal">×</a>
+
+        <h3>Create a new collection</h3>
+    </div>
+    <div class="modal-body">
+        <form class="form form-horizontal" id="form-new-collection">
+            <div class="control-group" id="new-collection-container">
+                <label class="control-label">Collection name</label>
+
+                <div class="controls">
+                    <input type="text" class="medium clean-input" name="new-collection-blank" id="new-collection-blank">
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <a class="btn btn-primary">Create</a>
+        <a data-dismiss="modal" class="btn btn-secondary">Cancel</a>
+    </div>
+</div>
+<div id="modal-edit-collection" class="modal hide fade" tabindex="-1">
+    <div class="modal-header">
+        <a class="close" data-dismiss="modal">×</a>
+        <h3>Edit collection</h3>
+    </div>
+    <div class="modal-body">
+        <div id="edit-collection-details">
+            <form class="form form-horizontal" id="form-edit-collection">
+                <input type="hidden" name="collection-id" class="collection-id">
+                <input type="text" name="collection-name" class="medium clean-input collection-name">
+            </form>
+        </div>
+
+        <div id="edit-collection-requests">
+            <ul id="edit-collection-requests-list"></ul>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a class="btn btn-primary">Edit</a>
+        <a data-dismiss="modal" class="btn btn-secondary">Cancel</a>
+    </div>
+</div>
+<div id="modal-edit-collection-request" class="modal fade">
+    <div class="modal-header">
+        <a class="close" data-dismiss="modal">×</a>
+
+        <h3>Edit request</h3>
+    </div>
+    <div class="modal-body">
+        <form class="form-horizontal" id="form-edit-collection-request">
+            <div class="control-group">
+                <label class="control-label" for="new-collection">Request name</label>
+
+                <div class="controls">
+                    <div class="input">
+                        <input type="hidden" class="collection-request-id">
+                        <input type="text" class="medium clean-input collection-request-name" data-tabindex="1">
+                    </div>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="new-collection">Request description</label>
+
+                <div class="controls">
+                    <div class="input">
+                        <textarea class="medium collection-request-description" data-tabindex="2"></textarea>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <a class="btn btn-primary" data-tabindex="3">Edit</a>
+        <a data-dismiss="modal" class="btn btn-secondary" data-tabindex="4">Cancel</a>
+    </div>
+</div>
+<div id="modal-add-to-collection" class="modal fade" data-keyboard="true">
+    <div class="modal-header">
+        <a class="close" data-dismiss="modal">×</a>
+
+        <h3>Add request to a collection</h3>
+    </div>
+    <div class="modal-body">
+        <form class="form-horizontal" id="form-add-to-collection">
+            <div class="control-group" id="select-collection-container">
+                <label class="control-label" for="select-collection">Existing collection</label>
+
+                <div class="controls">
+                    <select name="select-collection" class="medium" id="select-collection"><option>Select</option><option value="fcd76e28-770c-b1af-fa3c-f3b9a96d2a31">Sandbox Sempoa</option><option value="a5bdc8a4-def6-5645-8fb1-69e7c75d14d0">Sandbox Sempoa</option><option value="6a82ba91-6c78-00dc-2f3c-bed0740eb11f">Sandbox Sempoa</option><option value="5119ac72-b34d-a53b-03fb-9851b237336a">Sandbox Sempoa</option><option value="1651517d-1272-a1d4-dfdd-ce865eafec9d">Sandbox Sempoa</option><option value="32844b14-7953-7b5a-4b1a-19862e23a785">login</option></select>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="new-collection">or create a new one</label>
+
+                <div class="controls">
+                    <div class="input">
+                        <input type="text" class="medium clean-input" id="new-collection">
+                    </div>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="new-collection">Request name</label>
+
+                <div class="controls">
+                    <div class="input">
+                        <input type="text" class="medium clean-input" id="new-request-name">
+                    </div>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="new-collection">Request description</label>
+
+                <div class="controls">
+                    <div class="input">
+                        <textarea class="medium" id="new-request-description"></textarea>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <a class="btn btn-primary">Add to collection</a>
+        <a data-dismiss="modal" class="btn btn-secondary">Cancel</a>
+    </div>
+</div>
+
+
+<div id="modal-delete-collection" class="modal fade">
+    <div class="modal-header">
+        <a class="close" data-dismiss="modal">x</a>
+
+        <h3>Are you sure?</h3>
+    </div>
+
+    <div class="modal-body">
+        <p>
+            Are you sure you want to delete <span id="modal-delete-collection-name"></span>?
+        </p>
+    </div>
+
+    <div class="modal-footer">
+        <a data-collection-id="" id="modal-delete-collection-yes" data-dismiss="modal" class="btn btn-danger">Yes</a>
+        <a data-dismiss="modal" class="btn">No</a>
+    </div>
+</div>
+<div id="modal-delete-collection-request" class="modal fade">
+    <div class="modal-header">
+        <a class="close" data-dismiss="modal">x</a>
+
+        <h3>Are you sure?</h3>
+    </div>
+
+    <div class="modal-body">
+        <p>
+            Are you sure you want to delete <span id="modal-delete-collection-request-name"></span>?
+        </p>
+    </div>
+
+    <div class="modal-footer">
+        <a data-collection-id="" id="modal-delete-collection-request-yes" data-dismiss="modal" class="btn btn-danger">Yes</a>
+        <a data-dismiss="modal" class="btn">No</a>
+    </div>
+</div>
+<div id="modal-environments" class="modal fade">
+    <div class="modal-header">
+        <a class="close" data-dismiss="modal">x</a>
+        <h3>Manage environments</h3>
+    </div>
+
+    <div class="modal-body">
+        <div id="environments-list-wrapper">
+            <p>
+                Environments help you customize requests according to variables.
+            <span id="environments-list-help-detail">
+              Variables can be used in the
+              following form - {{variable}}. The string {{variable}} will be replaced with its corresponding value.
+              For example, for an environment variable 'url' with the value 'http://localhost'
+              , you will have to use {{url}} in the request URL field. {{url}} will be replaced by http://localhost
+              when the request is sent.
+            </span><a id="environments-list-help-toggle">Tell me more</a>
+            </p>
+
+            <div class="toolbar">
+                <button class="btn  environments-actions-add">
+                    Add
+                </button>
+                <button class="btn  environments-actions-import">
+                    Import
+                </button>
+                <button class="btn  environments-actions-manage-globals">
+                    Globals
+                </button>
+            </div>
+            <table id="environments-list" class="table table-striped table-bordered" style="margin-top: 10px;">
+                <tbody></tbody>
+            </table>
+        </div>
+        <div id="environment-editor">
+            <input type="text" name="environment-editor-name" id="environment-editor-name" class="clean-input" placeholder="New environment">
+            <input type="hidden" name="environment-editor-id" id="environment-editor-id" value="0" class="clean-input">
+
+            <div id="environment-keyvaleditor"><div class="keyvalueeditor-row keyvalueeditor-last"><input type="text" class="keyvalueeditor-key" placeholder="Key" name="keyvalueeditor-key" "=""><input type="text" class="keyvalueeditor-value keyvalueeditor-value-text" placeholder="Value" name="keyvalueeditor-value" "=""></div></div>
+        </div>
+        <div id="environment-importer">
+            <p>Select environment files from your desktop</p>
+
+            <div id="environment-importer-confirmations"></div>
+            <input type="file" id="environment-files-input" name="files[]" multiple="">
+        </div>
+        <div id="globals-editor">
+            <p>Globals are common values across all environments.</p>
+
+            <div id="globals-keyvaleditor"><div class="keyvalueeditor-row keyvalueeditor-last"><input type="text" class="keyvalueeditor-key" placeholder="Key" name="keyvalueeditor-key" "=""><input type="text" class="keyvalueeditor-value keyvalueeditor-value-text" placeholder="Value" name="keyvalueeditor-value" "=""></div></div>
+        </div>
+        <div class="modal-footer">
+            <a class="btn btn-primary environments-actions-add-submit">Submit</a>
+            <a class="btn environments-actions-add-back">Back</a>
+        </div>
+    </div>
+</div>
+<div id="modal-header-presets" class="modal fade">
+    <div class="modal-header">
+        <a class="close" data-dismiss="modal">x</a>
+
+        <h3>Manage header presets</h3>
+    </div>
+
+    <div class="modal-body">
+        <div id="header-presets-list-wrapper">
+            <p>
+                Quickly add groups of header key/value pairs to the request. Start typing the name of
+                the preset name and it'll show up in the dropdown list.
+            </p>
+
+            <div class="toolbar">
+                <button class="btn  header-presets-actions-add">
+                    Add
+                </button>
+            </div>
+            <table id="header-presets-list" class="table table-striped table-bordered" style="margin-top: 10px;">
+                <tbody></tbody>
+            </table>
+        </div>
+        <div id="header-presets-editor">
+            <input type="text" name="header-presets-editor-name" id="header-presets-editor-name" class="clean-input" placeholder="New preset name">
+            <input type="hidden" name="header-presets-editor-id" id="header-presets-editor-id" value="0" class="clean-input">
+
+            <div id="header-presets-keyvaleditor"><div class="keyvalueeditor-row keyvalueeditor-last"><input type="text" class="keyvalueeditor-key" placeholder="Key" name="keyvalueeditor-key" "=""><input type="text" class="keyvalueeditor-value keyvalueeditor-value-text" placeholder="Value" name="keyvalueeditor-value" "=""></div></div>
+        </div>
+
+        <div class="modal-footer">
+            <a class="btn btn-primary header-presets-actions-submit">Submit</a>
+            <a class="btn header-presets-actions-back">Back</a>
+        </div>
+    </div>
+</div>
+<div id="modal-settings" class="modal fade">
+    <div class="modal-header">
+        <a class="close" data-dismiss="modal">×</a>
+
+        <h3>Settings</h3>
+    </div>
+    <div class="modal-body">
+        <form class="form-horizontal">
+            <div class="control-group">
+                <label class="control-label" for="history-count">Max history items</label>
+
+                <div class="controls">
+                    <select class="medium" name="history-count" id="history-count">
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                        <option value="200">200</option>
+                        <option value="-1">Unlimited</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="auto-save-request">Auto save request</label>
+
+                <div class="controls">
+                    <select class="medium" name="auto-save-request" id="auto-save-request">
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="retain-link-headers">Retain headers on clicking on links</label>
+
+                <div class="controls">
+                    <select class="medium" name="retain-link-headers" id="retain-link-headers">
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="send-no-cache-header">Send no-cache header</label>
+
+                <div class="controls">
+                    <select class="medium" name="send-no-cache-header" id="send-no-cache-header">
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="language-detection">Language detection</label>
+
+                <div class="controls">
+                    <select class="medium" name="language-detection" id="language-detection">
+                        <option value="auto">Automatic detection</option>
+                        <option value="javascript">Force JSON</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="variable-delimiter">Variable delimiter</label>
+
+                <div class="controls">
+                    <input type="text" name="variable-delimiter" id="variable-delimiter">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="disable-iframe-preview">Disable IFrame Preview</label>
+
+                <div class="controls">
+                    <select class="medium" name="disable-iframe-preview" id="disable-iframe-preview">
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="use-postman-proxy">Use Postman proxy?</label>
+
+                <div class="controls">
+                    <select class="medium" name="use-postman-proxy" id="use-postman-proxy">
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                    </select>
+
+                    <p class="help-block">
+                        See <a href="https://github.com/a85/POSTMan-Chrome-Extension/wiki/Postman-Proxy">documentation</a>
+                        for usage instructions.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="control-group" id="postman-proxy-url-container" style="display: none;">
+                <label class="control-label" for="postman-proxy-url">Postman proxy URL</label>
+
+                <div class="controls">
+                    <input type="text" name="postman-proxy-url" id="postman-proxy-url">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="modal-spread-the-word" class="modal fade">
+    <div class="modal-header">
+        <a class="close" data-dismiss="modal">×</a>
+
+        <h3>Make Postman better!</h3>
+    </div>
+    <div class="modal-body">
+        <table class="table table-striped">
+            <tbody><tr>
+                <td>
+                    <strong>Pay through your credit card or Paypal</strong>
+
+                    <div class="paypal-donate-form">
+                        If you found Postman useful, pay through your credit card or
+                        Paypal to help the project grow even more!
+                        The payment will go into the design, development and maintenance of the project.
+
+                        <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                            <input type="hidden" name="cmd" value="_s-xclick">
+                            <input type="hidden" name="hosted_button_id" value="UZTSEWB887WDJ">
+                            <input type="image" src="./Postman_files/btn_paynowCC_LG.gif" border="0" name="submit" alt="PayPal — The safer, easier way to pay online.">
+                            <img alt="" border="0" src="./Postman_files/pixel.gif" width="1" height="1">
+                        </form>
+
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a target="_blank" href="https://chrome.google.com/webstore/detail/fdmmgilgnpjigdojojpjoooidkmcomcm/reviews">Write a
+                        review</a>
+
+                    <p>
+                        We would love a good review. A bad review would hurt but make it as informative as possible!
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a target="_blank" href="https://github.com/a85/POSTMan-Chrome-Extension">Check out the source
+                        code</a>
+
+                    <p>
+                        Found a bug or want to add a feature? Let us know or checkout the code.
+                        Postman is licensed under the Apache Licence, Version 2.0.
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Share Postman</strong>
+
+                    <div class="spreadtheword-sharebuttons">
+                        <div id="about-postman-social-buttons" class="clearfix">
+                            <div id="about-postman-twitter-button"></div>
+                            <div id="about-postman-plus-one-button"></div>
+                            <div id="about-postman-facebook-button"></div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody></table>
+    </div>
+</div>
+<div id="modal-shortcuts" class="modal fade">
+    <div class="modal-header">
+        <a class="close" data-dismiss="modal">×</a>
+
+        <h3>Shortcuts</h3>
+    </div>
+    <div class="modal-body">
+        <table class="table table-bordered table-striped">
+            <thead>
+            <tr>
+                <th>Action</th>
+                <th>Shortcut key</th>
+            </tr>
+            </thead>
+            <tbody><tr>
+                <td>New request</td>
+                <td><strong>Alt + n</strong></td>
+            </tr>
+            <tr>
+                <td>Preview request</td>
+                <td><strong>Alt + p</strong></td>
+            </tr>
+            <tr>
+                <td>Edit URL</td>
+                <td><strong>Backspace</strong></td>
+            </tr>
+            <tr>
+                <td>Edit headers</td>
+                <td><strong>h</strong></td>
+            </tr>
+            <tr>
+                <td>Send request</td>
+                <td><strong>Enter/Return</strong></td>
+            </tr>
+            <tr>
+                <td>Maximize/minimze response</td>
+                <td><strong>f</strong></td>
+            </tr>
+            <tr>
+                <td>Add request to collection</td>
+                <td><strong>a</strong></td>
+            </tr>
+            <tr>
+                <td>Clear history</td>
+                <td><strong>Alt + c</strong></td>
+            </tr>
+            <tr>
+                <td>Manage environments</td>
+                <td><strong>e</strong></td>
+            </tr>
+            <tr>
+                <td>Toggle Quicklook window</td>
+                <td><strong>q</strong></td>
+            </tr>
+            <tr>
+                <td>This window</td>
+                <td><strong>?</strong></td>
+            </tr>
+        </tbody></table>
+    </div>
+</div>
+<script type="text/javascript" async="" src="./Postman_files/ga.js.download"></script><script type="text/javascript" src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/js/google-analytics-bundle.js"></script>
+<script type="text/javascript" src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/js/ga.js"></script>
+<script type="text/javascript" src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/js/jquery.min.js"></script>
+<script type="text/javascript" src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/js/underscore-min.js"></script>
+<script type="text/javascript" src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/js/jsonlint.js"></script>
+
+<script type="text/javascript" src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/js/noty/jquery.noty.js"></script>
+<script type="text/javascript" src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/js/noty/layouts/top.js"></script>
+<script type="text/javascript" src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/js/noty/layouts/topCenter.js"></script>
+<script type="text/javascript" src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/js/noty/layouts/topRight.js"></script>
+<script type="text/javascript" src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/js/noty/themes/default.js"></script>
+
+<script type="text/javascript" src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/js/crypto/rollups/md5.js"></script>
+
+<script type="text/javascript" src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/js/jquery-ui-1.9.2.custom.min.js"></script>
+<script type="text/javascript" src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/js/dropbox/sha1.js"></script>
+<script type="text/javascript" src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/js/dropbox/oauth.js"></script>
+<script type="text/javascript" src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/js/util.js"></script>
+<script type="text/javascript" src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/js/httpstatuscodes.js"></script>
+<script type="text/javascript" src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/js/httpheaders.js"></script>
+<script type="text/javascript" src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/codemirror/lib/codemirror.js"></script>
+<script type="text/javascript" src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/codemirror/lib/util/formatting.js"></script>
+<script type="text/javascript" src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/codemirror/lib/util/foldcode.js"></script>
+<script type="text/javascript" src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/codemirror/mode/xmlpure/xmlpure.js"></script>
+<script type="text/javascript" src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/codemirror/mode/javascript/javascript.js"></script>
+<script type="text/javascript" src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/codemirror/mode/xml/xml.js"></script>
+<script type="text/javascript" src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+<script type="text/javascript" src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/js/codemirror.overlayParser.js"></script>
+<script type="text/javascript" src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/js/vkbeautify.js"></script>
+<script type="text/javascript" src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/js/jquery.keyvalueeditor.js"></script>
+<script type="text/javascript" src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/js/jquery.hotkeys.js"></script>
+<script type="text/javascript" src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/js/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/js/jquery.jscrollpane.js"></script>
+<script type="text/javascript" src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/js/bootstrap-modalmanager.js"></script>
+<script type="text/javascript" src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/js/bootstrap-modal.js"></script>
+<script type="text/javascript" src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/js/handlebars.js"></script>
+<script type="text/javascript" src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/js/templates.js"></script>
+<script type="text/javascript" src="chrome-extension://coohjcphdfgbiolnekdpbcijmhambjff/js/requester.js"></script>
+
+
+<ul class="ui-autocomplete ui-menu ui-widget ui-widget-content ui-corner-all" id="ui-id-1" tabindex="0" style="z-index: 1; display: none;"></ul><div id="modal-share-collection" class="modal fade" tabindex="-1" aria-hidden="true" style="margin-top: -155px; display: none;">
+    <div class="modal-header">
+        <a class="close" data-dismiss="modal" id="modal-share-collection-close">x</a>
+
+        <h3>Share collection</h3>
+    </div>
+
+    <div class="modal-body">
+        <div>
+            <h4>Share as a link</h4>
+
+            <p>Upload your collection to getpostman.com and get a link to share with others.</p>
+            <pre id="share-collection-link" style="display: none;"></pre>
+            <a id="share-collection-get-link" data-collection-id="32844b14-7953-7b5a-4b1a-19862e23a785" class="btn">Upload</a>
+        </div>
+        <div style="margin-top: 20px;">
+            <h4>Download as a file</h4>
+
+            <p>Get a JSON file to share with others or for backing up the collection.</p>
+            <a id="share-collection-download" data-collection-id="32844b14-7953-7b5a-4b1a-19862e23a785" class="btn">Download</a>
+        </div>
+        <hr>
+    </div>
+</div><div id="modal-import-collection" class="modal fade" tabindex="-1" aria-hidden="true" style="margin-top: -201px; display: none;">
+    <div class="modal-header">
+        <a class="close" data-dismiss="modal">x</a>
+
+        <h3>Import a collection</h3>
+    </div>
+
+    <div class="modal-body">
+        <h4>Import from disk</h4>
+
+        <div class="modal-import-alerts"></div>
+        <div id="import-collection-dropzone">
+            <h3>Drop files here or</h3>
+            <input type="file" id="collection-files-input" name="files[]" multiple="">
+        </div>
+        <hr>
+        <div id="import-collection-url-container">
+            <h4>Import from a URL</h4>
+
+            <div class="control-group">
+                <div class="controls">
+                    <input type="text" class="large clean-input" placeholder="Enter URL and press import" id="import-collection-url-input">
+                </div>
+            </div>
+            <div class="control-group">
+                <a id="import-collection-url-submit" class="btn btn-primary">Import</a>
+            </div>
+        </div>
+    </div>
+</div></body></html>
